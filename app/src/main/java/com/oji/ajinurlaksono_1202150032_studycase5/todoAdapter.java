@@ -30,7 +30,7 @@ public class todoAdapter extends RecyclerView.Adapter<todoAdapter.MyViewHolder> 
 
     public todoAdapter(Context context, List<todoList> todoList) {
         mInflater = LayoutInflater.from(context); //inisiasi inflater
-        this.todoLists = todoList;}
+        this.todoLists = todoList;} //arraylist
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.todo_list, parent, false);
@@ -41,12 +41,12 @@ public class todoAdapter extends RecyclerView.Adapter<todoAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        todoList todoList = this.todoLists.get(position);
+        todoList todoList = this.todoLists.get(position); //get value ke textView
         id= todoList.getId();
         holder.deskripsi.setText(todoList.getDekripsi());            //get value ke textView
-        holder.nama.setText(todoList.getNama());
-        holder.prioritas.setText(todoList.getPrioritas());
-switch (warna){
+        holder.nama.setText(todoList.getNama()); //get value ke textView
+        holder.prioritas.setText(todoList.getPrioritas()); //get value ke textView
+switch (warna){ //setting warna ketika menu dipilih
     case "Merah":holder.bgColor.setBackgroundResource(R.color.colorAccent);break;
     case "Cyan":holder.bgColor.setBackgroundColor(Color.CYAN);break;
     case "Hijau":holder.bgColor.setBackgroundColor(Color.GREEN);break;
@@ -69,12 +69,12 @@ switch (warna){
 
         public MyViewHolder(View view) {
             super(view);//menginisiasi variable2 attribute
-            nama = (TextView) view.findViewById(R.id.nama);
-            deskripsi = (TextView) view.findViewById(R.id.deskripsi);
-            prioritas = (TextView) view.findViewById(R.id.prioritas);
-            bgColor = (ConstraintLayout) view.findViewById(R.id.layout_background);
-            SharedPreferences Preference = PreferenceManager.getDefaultSharedPreferences(view.getContext());
-            warna = Preference.getString("chosenColor","-1");
+            nama = (TextView) view.findViewById(R.id.nama); //refrencing variable
+            deskripsi = (TextView) view.findViewById(R.id.deskripsi); //refrencing variable
+            prioritas = (TextView) view.findViewById(R.id.prioritas); //refrencing variable
+            bgColor = (ConstraintLayout) view.findViewById(R.id.layout_background); //refrencing variable
+            SharedPreferences Preference = PreferenceManager.getDefaultSharedPreferences(view.getContext()); //set shared preferences
+            warna = Preference.getString("chosenColor","-1"); //set shared preferences ke variable warna
             view.setOnClickListener(this);
         }
 

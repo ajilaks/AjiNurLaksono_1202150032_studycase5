@@ -33,17 +33,17 @@ import java.util.List;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseHelper mDbHelper;
-    private List<todoList> todoLists = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private todoAdapter mAdapter;
-    int i=0;
-    int[] id  = new int[20]; ;
-    String[] nama = new String[20];
-    String[] deskripsi;
-    String[] prioritas;
+    DatabaseHelper mDbHelper;   //inisiasi variable
+    private List<todoList> todoLists = new ArrayList<>(); //inisiasi variable
+    private RecyclerView recyclerView; //inisiasi variable
+    private todoAdapter mAdapter;//inisiasi variable
+    int i=0; //inisiasi variable
+    int[] id  = new int[20]; ; //inisiasi variable
+    String[] nama = new String[20]; //inisiasi variable
+    String[] deskripsi; //inisiasi variable
+    String[] prioritas;//inisiasi variable
     String warna;
-
+//inisiasi variable
 
 
     @Override
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         mDbHelper = new DatabaseHelper(this);
         prepareData();
 
+        //helper untuk membaca ketika di swap
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback
                 (ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN
                         | ItemTouchHelper.UP, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
              * @param target The SportsViewHolder that you are switching the original one with.
              * @return returns true if the item was moved, false otherwise
              */
-            @Override
+            @Override //method untuk ketika rec view di pindah
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
                                   RecyclerView.ViewHolder target) {
 
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
              * @param viewHolder The viewholder being swiped
              * @param direction The direction it is swiped in
              */
+
+            //method ketika di swap recyclerview
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 todoList todoList = todoLists.get(viewHolder.getAdapterPosition());
@@ -113,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
         //-------
 
 
+//handle Fab
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//handle Fab
+        setSupportActionBar(toolbar);//handle Fab
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);//refrencing FAB
+        fab.setOnClickListener(new View.OnClickListener() { // ketika click FAB
             @Override
             public void onClick(View view) {
 
@@ -126,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+//untuk menangani shared preferences
         SharedPreferences Preference = PreferenceManager.getDefaultSharedPreferences(this);
-
+//untuk menangani shared preferences
         warna = Preference.getString("chosenColor","-1");
 
        // Toast.makeText(this, warna, Toast.LENGTH_SHORT).show();
@@ -137,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+//method untuk menampung data
     private void prepareData() {
         Cursor data = mDbHelper.getData();
         todoLists.clear();
@@ -157,14 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter.notifyDataSetChanged();
     }
-
+    //method untuk option
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
+// ketika item dipilih
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
