@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AjiNurLaksono_1202150032_studycase5</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="colorArray">
+        <item>Putih</item>
+        <item>Merah</item>
+        <item>Cyan</item>
+        <item>Hijau</item>
+    </string-array>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.oji.ajinurlaksono_1202150032_studycase5.tambahTodo">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Tambah ToDo"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/tNama"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="To Do" />
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/tDeskripsi"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Deskripsi To Do" />
+
+    <EditText
+        android:id="@+id/tPrioritas"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:hint="Prioritas"
+        android:onClick="tambah"
+        android:text="Sumbit"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/bShowData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:onClick="tampilDAta"
+        android:text="Batal"
+        android:textColor="#fff" />
+</LinearLayout>
